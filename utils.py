@@ -11,6 +11,7 @@ import json
 import random
 import pprint
 import scipy.misc
+import imageio
 import numpy as np
 from time import gmtime, strftime
 
@@ -42,7 +43,7 @@ def merge(images, size):
 
 def imsave(images, size, path):
     img = merge(images, size)
-    return scipy.misc.imsave(path, (255*img).astype(np.uint8))
+    return imageio.imwrite(path, (255*img).astype(np.uint8))
 
 def center_crop(x, crop_h, crop_w=None, resize_w=64):
     if crop_w is None:
